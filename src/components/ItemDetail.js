@@ -1,34 +1,24 @@
 import './css/ItemDetail.css';
 
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import React, { useState } from 'react';
 
 import { AiOutlineHeart } from "react-icons/ai";
+import ItemCount from './ItemCount';
+import { Link } from "react-router-dom";
 
 function ItemDetail(props) { 
-    const [ cant, setCant] = useState(0);
     const producto = props.productoDetalle[0];
-    const sumar = () => 
-  {
-    if( cant < props.stock ){
-      setCant(cant+1);
+    const [ cantCart, setCantCart ] = useState(0);
+    const [ counter, setCounter ] = useState(true);
+    const [ compra, setCompra ] = useState(false);
+
+    const onAdd = (cantidad) => {
+        setCantCart(cantidad)
+        setCounter(false)
+        setCompra(true)
     }
-  }
-
-  const quitar = () => 
-  {
-    if( cant > props.inicial ){
-      setCant(cant-1);
-    }
-  }
-
-  const onAdd = () => {
-    if (cant > 0)
-    {console.log ('Se agregan ' + cant + ' Unidades')}
-  }
-
-  const guardar = (event) => setCant(event.target.value);
-
+    console.log(cantCart)
 
   return (
     <div>
@@ -72,21 +62,17 @@ function ItemDetail(props) {
                             </Col>
                         </Row>
                         <Row className="justify-content-md-center">
-                            <Col xs={7}>
-                                <Card>
-                                    <Card.Body>
-                                        <div className="input-group mb-3">
-                                        <button onClick={quitar} className="input-group-text">-</button>
-                                        <input type="text" className="form-control" value={cant} onChange={guardar}/>
-                                        <button onClick={sumar} className="input-group-text">+</button>
-                                        </div>
-                                        <Button onClick={onAdd} className="buttonAccent">{ cant > 0 ? 'Agregar al carrito' : 'Elegi la cantidad'}</Button>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        </Row>
-                    </Container>           
+                            { counter === true && <ItemCount inicial="1" stock="5" onAdd={onAdd} />}
+                            { compra === true && 
+                                <Col className="mt-5">
+                                    <Link to={`/cart`} className="btn btn-lg buttonAccent"> Finalizar compra</Link>
+                                </Col> 
+                            }
+                        </Row> 
+                    </Container>
+                    
                 </Col>
+
             </Row>
         </Container>
         
@@ -94,5 +80,5 @@ function ItemDetail(props) {
                
   );
 }
- 
+
 export default ItemDetail;
