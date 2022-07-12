@@ -12,7 +12,8 @@ function ItemCart(props) {
             <Card className='itemCarrito'>
                 <Card.Body>
                     <Container>
-                         <Row>
+                    <h1>En reparacion... Estamos trabajando para que el usuario no vea el código roto! =P</h1>
+                         {/* <Row>
                             <Col xs={3}>
                                 <img src={require(`../assets/images/productos/${props.producto[0].imagen}`)} alt={props.producto[0].nombre} className="imageThumb"/>
                                 </Col>
@@ -32,7 +33,7 @@ function ItemCart(props) {
                                     <FaTrashAlt/> Eliminar
                                     </span>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Container>
                 </Card.Body>
             </Card>
