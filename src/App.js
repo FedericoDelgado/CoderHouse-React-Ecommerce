@@ -1,4 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import Cart from "./pages/Cart";
+import { CartContextProvider } from './store/cart-context';
 import Contacto from "./pages/Contacto";
 import Footer from "./components/Footer";
 import Home from './pages/Home'
@@ -7,11 +9,12 @@ import ItemListContainer from './pages/ItemListContainer';
 import NavBar from './components/NavBar';
 import Nosotros from "./pages/Nosotros";
 import NotFound from "./pages/NotFound";
-import Cart from "./pages/Cart";
+
 
 
 function App() {
   return (
+  <CartContextProvider>
     <div className='cuerpo'>
         <NavBar />
         <Routes>
@@ -29,6 +32,8 @@ function App() {
 
         <Footer />
     </div> 
+  </CartContextProvider>
+
   );
 }
 

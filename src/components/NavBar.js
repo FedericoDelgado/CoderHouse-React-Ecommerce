@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Container, Row} from 'react-bootstrap';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import CartWidget from './CartWidget';
+import CartWidget from './CartWidget'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { NavLink } from 'react-router-dom';
 import React from 'react';
@@ -20,26 +20,26 @@ function NavBar() {
         </Col>
         <Col xs={6} className='menu'>
           <ul className="nav nav-pills">
-            <li className="nav-item"><NavLink activeClassName='active' to='/inicio'>Inicio</NavLink></li>
+            <li className="nav-item"><NavLink to='/inicio'>Inicio</NavLink></li>
             <li className="nav-item">
-              <NavLink activeClassName='active' to='#' className='dropdown-toggle' data-bs-toggle="dropdown" role="button" aria-expanded="false">
+              <NavLink  to='#' className='dropdown-toggle' data-bs-toggle="dropdown" role="button" aria-expanded="false">
                 Productos</NavLink>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="/productos">Todos</a></li>
-                  <li><a className="dropdown-item" href="/categoria/Perifericos">Perifericos</a></li>
-                  <li><a className="dropdown-item" href="/categoria/Monitores">Monitores</a></li>
-                  <li><a className="dropdown-item" href="/categoria/Hardware">Hardware</a></li>
-                  <li><a className="dropdown-item" href="/categoria/Combos">Combos</a></li>
+                  <li><NavLink className='dropdown-item' to='/productos'>Todos</NavLink></li>
+                  <li><NavLink className='dropdown-item' to='/categoria/Perifericos'>Perifericos</NavLink></li>
+                  <li><NavLink className='dropdown-item' to='/categoria/Monitores'>Monitores</NavLink></li>
+                  <li><NavLink className='dropdown-item' to='/categoria/Hardware'>Hardware</NavLink></li>
+                  <li><NavLink className='dropdown-item' to='/categoria/Combos'>Combos</NavLink></li>
                 </ul>
             </li>
-            <li className="nav-item"><NavLink activeClassName='active' to='/nosotros'>Nosotros</NavLink></li>
-            <li className="nav-item"><NavLink activeClassName='active' to='/contacto'>Contacto</NavLink></li>
+            <li className="nav-item"><NavLink  to='/nosotros'>Nosotros</NavLink></li>
+            <li className="nav-item"><NavLink  to='/contacto'>Contacto</NavLink></li>
           </ul>
         </Col>
         <Col>
-          <a src="#" className='icons'>
+          <NavLink className='icons' to='#'>
             <FontAwesomeIcon icon={faSearch} />
-          </a>
+          </NavLink>
           <CartWidget />
         </Col>
       </Row>

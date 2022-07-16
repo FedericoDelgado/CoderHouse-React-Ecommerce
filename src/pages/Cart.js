@@ -1,16 +1,14 @@
 import './css/Cart.css';
 
 import {Col, Container, Row} from 'react-bootstrap';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import ItemCart from '../components/ItemCart';
 import TotalCart from '../components/TotalCart';
 
-//import { useParams } from 'react-router-dom';
 
 function Cart() {
-  const [ producto, setProducto ] = useState([]);
-  //const params = useParams();
+  /* const [ producto, setProducto ] = useState([]);
   
    useEffect( () =>{
      setTimeout(
@@ -20,7 +18,7 @@ function Cart() {
                  .then(data => setProducto(data.filter( i => i.id === 1)))
          },2000
      )
-   }, [] );
+   }, [] ); */
 
   return (
     <div className='body'>
@@ -32,7 +30,7 @@ function Cart() {
                     <Container>
                       <Row>
                         <Col md={8} className="contenedorDetalles">
-                          <ItemCart producto={producto}/>
+                          <ItemCart/>
                         </Col>
                         <Col md={4}>
                           <TotalCart />

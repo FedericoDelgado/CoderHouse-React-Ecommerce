@@ -1,18 +1,25 @@
 import './css/CartWidget.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import CartContext from '../store/cart-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react';
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function CartWidget() {
+  const { itemsCarrito } = useContext(CartContext);
+
+  let suma=0;
+  itemsCarrito.map( i =>  suma = ( suma + parseInt(i.quality) )) 
+
   return (
     <div> 
-        <a href="/cart" className='icons'>
+          <NavLink className='icons' to='/cart'>
             <FontAwesomeIcon icon={faCartShopping} />  
-        </a>
-        <span className='cantItem'>22</span> 
+          </NavLink>
+        { suma != 0 && <span className='cantItem'>{ suma }</span>  }
+
     </div>        
   );
 }
