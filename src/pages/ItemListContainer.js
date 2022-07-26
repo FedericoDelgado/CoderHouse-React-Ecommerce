@@ -2,6 +2,7 @@ import './css/ItemListContainer.css';
 
 import {Col, Container, Row} from 'react-bootstrap';
 import React, { useEffect, useState } from 'react';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore/lite';
 
 import ItemList from '../components/ItemList';
 import Loading from '../components/Loading';
@@ -12,9 +13,26 @@ function ItemListContainer() {
     const [ productos, setProductos ] = useState([]);
     const params = useParams();
     let categoria = params.category;
+    const db = getFirestore(); 
 
   useEffect( () =>{
-  if(categoria === undefined ) {
+
+    if(categoria === undefined){
+        const itemsProductos = collection( db, "product")
+        getDocs(itemsProductos).then((snapshot) => {
+            setProductos(snapshot.docs.map((doc) => (doc.data())))
+        })
+    }else{
+        const itemsProductos = query(collection( db, "product"), where ( "categoria", "==", categoria) )
+        getDocs(itemsProductos).then((snapshot) => {
+            setProductos(snapshot.docs.map((doc) => (doc.data())))
+         })
+     }   
+
+    setLoading(false) 
+    }, [categoria] );
+
+/*   if(categoria === undefined ) {
     
       setTimeout(
           ()=>{
@@ -36,7 +54,7 @@ function ItemListContainer() {
       )
     
   }
-}, [] );
+}, [] ); */
   return (
     <div className='body'>
         <Container>

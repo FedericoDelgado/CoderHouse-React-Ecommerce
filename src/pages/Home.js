@@ -3,7 +3,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 
 import { Col, Container, Row } from 'react-bootstrap';
 import React, { useEffect, useState } from 'react';
-
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore/lite';
 import AliceCarousel from 'react-alice-carousel';
 import ItemList from '../components/ItemList';
 import Loading from '../components/Loading';
@@ -14,9 +14,10 @@ function Home() {
     const [ catDos, setCatDos ] = useState([]);
     const [ catTres, setCatTres ] = useState([]);
     const [ catCuatro, setCatCuatro ] = useState([]);
+    const db = getFirestore();
 
     useEffect( () =>{
-      setTimeout(
+      /* setTimeout(
           ()=>{
               fetch('constantes/productos.json')
                   .then(resp => resp.json())
@@ -28,7 +29,25 @@ function Home() {
                     })
                     setLoading(false)
           },2000
-      )
+      ) */
+      const itemsCom = query(collection( db, "product"), where ( "categoria", "==", "Combos") )
+        getDocs(itemsCom).then((snapshot) => {
+            setCatUno(snapshot.docs.map((doc) => (doc.data())))
+         })
+    const itemsHard = query(collection( db, "product"), where ( "categoria", "==", "Hardware") )
+         getDocs(itemsHard).then((snapshot) => {
+             setCatDos(snapshot.docs.map((doc) => (doc.data())))
+          })
+    const itemsMoni = query(collection( db, "product"), where ( "categoria", "==", "Monitores") )
+          getDocs(itemsMoni).then((snapshot) => {
+              setCatTres(snapshot.docs.map((doc) => (doc.data())))
+           })
+    const itemsPeri = query(collection( db, "product"), where ( "categoria", "==", "Perifericos") )
+           getDocs(itemsPeri).then((snapshot) => {
+               setCatCuatro(snapshot.docs.map((doc) => (doc.data())))
+            })
+
+    setLoading(false)
     }, [] );
 
   return (

@@ -21,6 +21,8 @@ function NavBar() {
         <Col xs={6} className='menu'>
           <ul className="nav nav-pills">
             <li className="nav-item"><NavLink to='/inicio'>Inicio</NavLink></li>
+            <li className="nav-item"><NavLink  to='/nosotros'>Nosotros</NavLink></li>
+            <li className="nav-item"><NavLink  to='/contacto'>Contacto</NavLink></li>
             <li className="nav-item">
               <NavLink  to='#' className='dropdown-toggle' data-bs-toggle="dropdown" role="button" aria-expanded="false">
                 Productos</NavLink>
@@ -32,8 +34,6 @@ function NavBar() {
                   <li><NavLink className='dropdown-item' to='/categoria/Combos'>Combos</NavLink></li>
                 </ul>
             </li>
-            <li className="nav-item"><NavLink  to='/nosotros'>Nosotros</NavLink></li>
-            <li className="nav-item"><NavLink  to='/contacto'>Contacto</NavLink></li>
           </ul>
         </Col>
         <Col>
