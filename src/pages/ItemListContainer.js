@@ -18,12 +18,12 @@ function ItemListContainer() {
   useEffect( () =>{
 
     if(categoria === undefined){
-        const itemsProductos = collection( db, "product")
+        const itemsProductos = collection( db, "productos")
         getDocs(itemsProductos).then((snapshot) => {
             setProductos(snapshot.docs.map((doc) => (doc.data())))
         })
     }else{
-        const itemsProductos = query(collection( db, "product"), where ( "categoria", "==", categoria) )
+        const itemsProductos = query(collection( db, "productos"), where ( "categoria", "==", categoria) )
         getDocs(itemsProductos).then((snapshot) => {
             setProductos(snapshot.docs.map((doc) => (doc.data())))
          })

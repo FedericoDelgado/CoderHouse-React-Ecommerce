@@ -30,19 +30,19 @@ function Home() {
                     setLoading(false)
           },2000
       ) */
-      const itemsCom = query(collection( db, "product"), where ( "categoria", "==", "Combos") )
+      const itemsCom = query(collection( db, "productos"), where ( "categoria", "==", "Combos") )
         getDocs(itemsCom).then((snapshot) => {
             setCatUno(snapshot.docs.map((doc) => (doc.data())))
          })
-    const itemsHard = query(collection( db, "product"), where ( "categoria", "==", "Hardware") )
+    const itemsHard = query(collection( db, "productos"), where ( "categoria", "==", "Hardware") )
          getDocs(itemsHard).then((snapshot) => {
              setCatDos(snapshot.docs.map((doc) => (doc.data())))
           })
-    const itemsMoni = query(collection( db, "product"), where ( "categoria", "==", "Monitores") )
+    const itemsMoni = query(collection( db, "productos"), where ( "categoria", "==", "Monitores") )
           getDocs(itemsMoni).then((snapshot) => {
               setCatTres(snapshot.docs.map((doc) => (doc.data())))
            })
-    const itemsPeri = query(collection( db, "product"), where ( "categoria", "==", "Perifericos") )
+    const itemsPeri = query(collection( db, "productos"), where ( "categoria", "==", "Perifericos") )
            getDocs(itemsPeri).then((snapshot) => {
                setCatCuatro(snapshot.docs.map((doc) => (doc.data())))
             })

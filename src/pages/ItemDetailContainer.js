@@ -27,7 +27,7 @@ function ItemDetailContainer() {
         },2000
     )
   }, [] ); */
-  const itemsProductos = query(collection( db, "product"), where ( "title", "==", titulo ))
+  const itemsProductos = query(collection( db, "productos"), where ( "title", "==", titulo ))
     getDocs(itemsProductos).then((snapshot) => {
         setProducto(snapshot.docs.map((doc) => (doc.data())))
     })
