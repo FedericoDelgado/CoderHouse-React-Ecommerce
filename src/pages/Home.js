@@ -17,19 +17,7 @@ function Home() {
     const db = getFirestore();
 
     useEffect( () =>{
-      /* setTimeout(
-          ()=>{
-              fetch('constantes/productos.json')
-                  .then(resp => resp.json())
-                  .then(data => {
-                    setCatUno(data.filter( i => i.categoria === "Perifericos" ))
-                    setCatDos(data.filter( i => i.categoria === "Monitores" ))
-                    setCatTres(data.filter( i => i.categoria === "Hardware" ))
-                    setCatCuatro(data.filter( i => i.categoria === "Combos" ))
-                    })
-                    setLoading(false)
-          },2000
-      ) */
+
       const itemsCom = query(collection( db, "productos"), where ( "categoria", "==", "Combos") )
         getDocs(itemsCom).then((snapshot) => {
             setCatUno(snapshot.docs.map((doc) => (doc.data())))
@@ -58,12 +46,7 @@ function Home() {
             <img src={require('../assets/images/slide/Slider-Servicio.png')} className="sliderimg"/>
             <img src={require('../assets/images/slide/Slider-Soporte.png')} className="sliderimg"/>
         </AliceCarousel>
-        <Container>
-            <Row>
-                <Col>
-                </Col>
-            </Row>
-        </Container>
+        
         <Container>
             <Row>
                 <Col className="colPadding">

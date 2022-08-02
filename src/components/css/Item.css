@@ -1,21 +1,21 @@
 .card{
     text-align: center;
-    border: 0.5px solid #a1a1a14f !important;
-    border-top-right-radius: 25px !important;
-    border-bottom-left-radius: 25px !important;
+    border: 0.5px solid black;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 .favorito{
     float: right;
 } 
 .marca{
     font-weight: bold;
-    color: #e12257;
+    color: #239400;
 }
 .precio{
     font-weight: bold;
-    color: #1d175c;
+    color: black;
 }
 .titulo{
-    color: #1d175c;
+    color: black;
     text-transform: uppercase;
 }
