@@ -50,28 +50,28 @@ function Home() {
         <Container>
             <Row>
                 <Col className="colPadding">
-                    <h3 className='pb-4 titulo'>Perifericos</h3>
+                    <h3 className='pb-4 titulo'>Combos</h3>
                     { loading === true && <Loading />}
                     <ItemList productos={catUno} />
                 </Col> 
             </Row>
             <Row>
                 <Col className="colPadding">
-                    <h3 className='pb-4 titulo'>Monitores</h3>
+                    <h3 className='pb-4 titulo'>Hardwere</h3>
                     <ItemList productos={catDos} />
                     { loading === true && <Loading />}
                 </Col>
             </Row>
             <Row>
                 <Col className="colPadding">
-                    <h3 className='pb-4 titulo'>Hardware</h3>
+                    <h3 className='pb-4 titulo'>Monitores</h3>
                     { loading === true && <Loading />}
                     <ItemList productos={catTres} />
                 </Col>
             </Row>
             <Row>
                 <Col className="colPadding">
-                    <h3 className='pb-4 titulo'>Combos</h3>
+                    <h3 className='pb-4 titulo'>Perifericos</h3>
                     { loading === true && <Loading />}
                     <ItemList productos={catCuatro} />
 
