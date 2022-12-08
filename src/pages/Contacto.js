@@ -24,7 +24,7 @@ function Contacto() {
           </div>
           <div>
             <h4>Teléfono:</h4>
-            <p>+549 11 21589197</p>
+            <p>+54 11 01234567</p>
           </div>
         </div> 
             </Col>
